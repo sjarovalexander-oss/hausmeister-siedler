@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hausmeisterservice Siedler GmbH · Grenzach-Wyhlen & Umgebung</title>
+<meta name="description" content="Hausmeisterservice, Gebäudereinigung, Grünanlagenpflege und Winterdienst in Grenzach-Wyhlen, Lörrach und Umgebung. Kostenlose Besichtigung, fester Ansprechpartner, 24h Notdienst.">
+<link rel="icon" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow reveal">Facility Management · Grenzach-Wyhlen</span>
+      <h1 class="reveal d1">Ihr Haus.<br><span class="blue">Unsere</span> <span class="stroke">Sorge.</span></h1>
+      <p class="lead reveal d2">Hausmeisterdienste, Reinigung, Grünpflege und Winterdienst aus einer Hand – mit festem Ansprechpartner, sauberer Dokumentation und 24-Stunden-Notdienst.</p>
+      <div class="hero-cta reveal d3">
+        <a class="btn btn-primary" href="/kostenrechner" data-i="calc">Kosten berechnen</a>
+        <a class="btn btn-ghost" href="#kontakt">Kostenlose Besichtigung</a>
+      </div>
+      <div class="hero-badges reveal d3">
+        <div data-i="shield">Versichert & zuverlässig</div>
+        <div data-i="clock">24h Notdienst</div>
+        <div data-i="user">Ein Ansprechpartner</div>
+      </div>
+    </div>
+    <div class="stage reveal d2">
+      <canvas id="house3d" aria-label="3D-Haus Animation"></canvas>
+      <img class="mascot" src="/assets/logo.png" alt="Hausmeister Siedler Maskottchen">
+      <div class="chip c1" data-i="leaf">Grünpflege</div>
+      <div class="chip c2" data-i="snow">Winterdienst</div>
+      <div class="chip c3" data-i="sparkle">Reinigung</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div id="mq"></div></div>
+
+<!-- STATS -->
+<section style="padding-top:60px;padding-bottom:0">
+  <div class="wrap stats">
+    <div class="stat reveal"><b>18</b><span>Leistungen aus einer Hand</span></div>
+    <div class="stat reveal d1"><b>24/7</b><span>Notdienst erreichbar</span></div>
+    <div class="stat reveal d2"><b>0 €</b><span>Besichtigung & Angebot</span></div>
+    <div class="stat reveal d3"><b>1</b><span>fester Ansprechpartner</span></div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section id="leistungen">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Dienstleistungen</span><h2 class="reveal">Alles rund um<br>Ihre Immobilie</h2></div>
+      <div class="filters reveal" id="filters"></div>
+    </div>
+    <div class="svc-grid" id="svc"></div>
+  </div>
+</section>
+
+<!-- KOSTENRECHNER TEASER -->
+<section style="padding-top:20px">
+  <div class="wrap calc-band reveal">
+    <div style="position:relative;z-index:1">
+      <span class="eyebrow">Kostenrechner</span>
+      <h2>Was kostet das?<br><span class="blue">In 60 Sekunden</span> wissen.</h2>
+      <p>Objekt wählen, Leistungen anklicken, Flächen eingeben – und sofort eine ehrliche Preisspanne sehen. Danach mit einem Klick ein unverbindliches Angebot anfordern, gerne mit Fotos vom Objekt.</p>
+      <a class="btn btn-primary" href="/kostenrechner">Jetzt berechnen →</a>
+    </div>
+    <div class="calc-preview">
+      <div class="row"><span>Treppenhaus · 3 Etagen · wöchentlich</span><b>260–390 €</b></div>
+      <div class="row"><span>Hausmeister · 8 Wohneinheiten</span><b>160–280 €</b></div>
+      <div class="row"><span>Winterdienst · 60 m² Gehweg</span><b>38–139 €</b></div>
+      <div class="tot"><span>pro Monat, ca.</span><b>458–809 €</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABLAUF -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">So arbeiten wir</span><h2 class="reveal">In drei Schritten<br>zum gepflegten Objekt</h2></div></div>
+    <div class="steps">
+      <div class="step reveal"><b>01</b><h3>Anfrage & Besichtigung</h3><p>Sie melden sich per Formular, Telefon oder WhatsApp. Wir sehen uns das Objekt kostenlos vor Ort an.</p></div>
+      <div class="step reveal d1"><b>02</b><h3>Festes Angebot</h3><p>Sie erhalten ein klares Angebot mit Leistungsverzeichnis – ohne versteckte Kosten.</p></div>
+      <div class="step reveal d2"><b>03</b><h3>Zuverlässige Betreuung</h3><p>Ein fester Ansprechpartner, feste Intervalle und dokumentierte Einsätze.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ÜBER UNS -->
+<section id="ueber-uns" style="background:#fff">
+  <div class="wrap about">
+    <div class="about-visual reveal"><img src="/assets/logo.png" alt="Siedler Maskottchen"></div>
+    <div>
+      <span class="eyebrow">Über uns</span>
+      <h2 class="reveal">Inhabergeführt.<br>Aus der Region.</h2>
+      <p class="lead reveal d1" style="margin-top:20px">Die Hausmeisterservice – Siedler GmbH mit Sitz in Grenzach-Wyhlen betreut Wohnanlagen, Gewerbeobjekte und Privathäuser am Hochrhein. Geführt von Inhaberin und Geschäftsführerin Katya Siedler.</p>
+      <ul class="reveal d2">
+        <li data-i="check">Persönlicher Ansprechpartner statt Callcenter</li>
+        <li data-i="check">Eigenes, geschultes Team und moderne Maschinen</li>
+        <li data-i="check">Dokumentierte Einsätze – nachvollziehbar für Verwaltung & Eigentümer</li>
+        <li data-i="check">Kurze Wege im Dreiländereck</li>
+      </ul>
+      <p class="note">Platzhaltertext – Geschichte und Fotos der Firma folgen.</p>
+      <div class="areas" id="areas"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Bilder & Videos</span><h2 class="reveal">Einblicke in<br>unsere Arbeit</h2></div><p class="lead">Vorher/Nachher, Teamfotos und Videos unserer Einsätze – die Galerie wird gerade befüllt.</p></div>
+    <div class="gal reveal" id="gal"></div>
+  </div>
+</section>
+
+<!-- KARRIERE -->
+<section id="karriere" style="background:#fff">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Karriere</span><h2 class="reveal">Werden Sie Teil<br>unseres Teams</h2></div><p class="lead">Offene Stellen – einfach aufklappen und direkt online bewerben.</p></div>
+    <div class="jobs" id="jobs"></div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Kontakt</span><h2 class="reveal">Wie können wir<br>Ihnen helfen?</h2></div></div>
+    <div class="tabs" id="tabs">
+      <button class="on" data-t="allg">Allgemeine Anfrage</button>
+      <button data-t="zaehler">Zählerablesung beauftragen</button>
+      <button data-t="gravur">Gravur für Klingel- & Türschilder</button>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <!-- 1 ALLGEMEIN -->
+        <form class="panel form" id="f-allg" data-type="Allgemeine Anfrage">
+          <h3>Name & Adressdaten</h3>
+          <div class="grid3">
+            <div class="field"><label>Anrede</label><select name="anrede"><option value="">bitte wählen Sie</option><option>Frau</option><option>Herr</option><option>Divers</option><option>Firma</option></select></div>
+            <div class="field"><label>Vorname</label><input name="vorname" autocomplete="given-name"></div>
+            <div class="field"><label>Name <em>*</em></label><input name="name" required autocomplete="family-name"></div>
+          </div>
+          <div class="grid2">
+            <div class="field"><label>Firma</label><input name="firma" autocomplete="organization"></div>
+            <div class="field"><label>Postfach</label><input name="postfach"></div>
+          </div>
+          <div class="grid3">
+            <div class="field"><label>PLZ <em>*</em></label><input name="plz" required inputmode="numeric" autocomplete="postal-code"></div>
+            <div class="field" style="grid-column:span 2"><label>Ort <em>*</em></label><input name="ort" required autocomplete="address-level2"></div>
+          </div>
+          <div class="grid3">
+            <div class="field" style="grid-column:span 2"><label>Straße <em>*</em></label><input name="strasse" required autocomplete="address-line1"></div>
+            <div class="field"><label>Hausnummer <em>*</em></label><input name="hausnr" required></div>
+          </div>
+          <h3>Kontaktdaten & Mitteilung</h3>
+          <div class="grid3">
+            <div class="field"><label>Telefon <em>**</em></label><input name="telefon" type="tel" data-phone></div>
+            <div class="field"><label>Telefon (geschäftlich) <em>**</em></label><input name="telefon_geschaeftlich" type="tel" data-phone></div>
+            <div class="field"><label>Telefon (mobil) <em>**</em></label><input name="telefon_mobil" type="tel" data-phone></div>
+          </div>
+          <p class="hint">** Bitte geben Sie mindestens eine Telefonnummer an. · <em class="blue">*</em> Pflichtfelder</p>
+          <div class="grid2">
+            <div class="field"><label>E-Mail</label><input name="email" type="email" autocomplete="email"></div>
+            <div class="field"><label>Wann können wir Sie am besten erreichen? <em>*</em></label>
+              <select name="erreichbar" required><option value="">bitte wählen Sie</option><option>Vormittags (8–12 Uhr)</option><option>Mittags (12–14 Uhr)</option><option>Nachmittags (14–17 Uhr)</option><option>Abends (ab 17 Uhr)</option><option>Jederzeit</option></select></div>
+          </div>
+          <div class="field"><label>Ich wünsche Informationen zu …</label>
+            <div class="chips">
+              <label><input type="checkbox" name="anliegen" value="Hausmeisterdienste"><span>Hausmeisterdienste</span></label>
+              <label><input type="checkbox" name="anliegen" value="Gehwegreinigung"><span>Gehwegreinigung</span></label>
+              <label><input type="checkbox" name="anliegen" value="Grünanlagenpflege"><span>Grünanlagenpflege</span></label>
+              <label><input type="checkbox" name="anliegen" value="Winterdienst"><span>Winterdienst</span></label>
+              <label><input type="checkbox" name="anliegen" value="Technische Betreuung"><span>Technische Betreuung</span></label>
+              <label><input type="checkbox" name="anliegen" value="Gebäudereinigung"><span>Gebäudereinigung</span></label>
+              <label><input type="checkbox" name="anliegen" value="Glasreinigung"><span>Glasreinigung</span></label>
+              <label><input type="checkbox" name="anliegen" value="Kontrolldienste"><span>Kontrolldienste</span></label>
+              <label><input type="checkbox" name="anliegen" value="24-Stunden-Notdienst"><span>24-Stunden-Notdienst</span></label>
+            </div>
+          </div>
+          <div class="field"><label>Mitteilung <em>*</em></label><textarea name="mitteilung" required placeholder="Beschreiben Sie kurz Ihr Anliegen …"></textarea></div>
+          <div class="field"><label>Fotos vom Objekt (optional)</label><div data-drop></div></div>
+          <div class="yn">Bitte schicken Sie eine Kopie meiner Anfrage unverschlüsselt an meine E-Mail-Adresse:
+            <label><input type="radio" name="kopie" value="ja"> Ja</label><label><input type="radio" name="kopie" value="nein" checked> Nein</label></div>
+          <label class="consent"><input type="checkbox" name="datenschutz" required><span>Mit Absenden dieses Formulars stimmen Sie der Übermittlung und Verarbeitung Ihrer Daten wie in unserer <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> beschrieben zu. <em class="blue">*</em></span></label>
+          <button class="btn btn-primary" type="submit">Anfrage absenden →</button>
+        </form>
+
+        <!-- 2 ZÄHLER -->
+        <form class="panel form" id="f-zaehler" data-type="Zählerablesung" hidden>
+          <h3>Name & Adressdaten</h3>
+          <div class="grid3">
+            <div class="field"><label>Anrede <em>*</em></label><select name="anrede" required><option value="">bitte wählen Sie</option><option>Frau</option><option>Herr</option><option>Divers</option><option>Firma</option></select></div>
+            <div class="field"><label>Vorname <em>*</em></label><input name="vorname" required></div>
+            <div class="field"><label>Name <em>*</em></label><input name="name" required></div>
+          </div>
+          <div class="field"><label>Firma</label><input name="firma"></div>
+          <div class="grid3">
+            <div class="field"><label>PLZ <em>*</em></label><input name="plz" required inputmode="numeric"></div>
+            <div class="field" style="grid-column:span 2"><label>Ort <em>*</em></label><input name="ort" required></div>
+          </div>
+          <div class="grid3">
+            <div class="field" style="grid-column:span 2"><label>Straße <em>*</em></label><input name="strasse" required></div>
+            <div class="field"><label>Hausnummer <em>*</em></label><input name="hausnr" required></div>
+          </div>
+          <div class="grid2">
+            <div class="field"><label>Telefon <em>*</em></label><input name="telefon" type="tel" required></div>
+            <div class="field"><label>E-Mail <em>*</em></label><input name="email" type="email" required></div>
+          </div>
+          <div class="yn"><b>Adressdaten speichern:</b> Ich will Name & Adressdaten auf diesem Gerät speichern, damit ich sie das nächste Mal nicht erneut eingeben muss.
+            <label><input type="radio" name="speichern" value="ja"> Ja</label><label><input type="radio" name="speichern" value="nein" checked> Nein</label></div>
+          <h3>Informationen & Mitteilung</h3>
+          <div class="yn"><b>Abzulesender Zähler in der angegebenen Adresse?</b>
+            <label><input type="radio" name="gleiche_adresse" value="ja" checked> ja</label><label><input type="radio" name="gleiche_adresse" value="nein"> nein, andere Adresse</label></div>
+          <div class="field" id="other-addr" hidden><label>Objektadresse des Zählers</label><input name="objektadresse" placeholder="Straße, Hausnummer, PLZ, Ort"></div>
+          <div class="grid2">
+            <div class="field"><label>Wohnungsnummer</label><input name="wohnung"></div>
+            <div class="field"><label>Etage <em>*</em></label><select name="etage" required><option value="">bitte wählen Sie</option><option>Untergeschoss / Keller</option><option>Erdgeschoss</option><option>1. OG</option><option>2. OG</option><option>3. OG</option><option>4. OG</option><option>5. OG oder höher</option><option>Dachgeschoss</option></select></div>
+          </div>
+          <div id="meters"></div>
+          <label class="fee"><input type="checkbox" name="kostenpflichtig" value="ja"><span><b>Kostenpflichtige Ablesung:</b> Zähler, obwohl er frei zugänglich ist, gegen eine Aufwandsentschädigung von <b>40,00 EUR inkl. MwSt.</b> ablesen.</span></label>
+          <div class="field"><label>Mitteilung</label><textarea name="mitteilung"></textarea></div>
+          <label class="consent"><input type="checkbox" name="datenschutz" required><span>Mit Absenden dieses Formulars stimmen Sie der Übermittlung und Verarbeitung Ihrer Daten wie in unserer <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> beschrieben zu. <em class="blue">*</em></span></label>
+          <button class="btn btn-primary" type="submit">Ablesung beauftragen →</button>
+        </form>
+
+        <!-- 3 GRAVUR -->
+        <form class="panel form" id="f-gravur" data-type="Gravur" hidden>
+          <h3>Ihre Daten</h3>
+          <div class="grid3">
+            <div class="field"><label>Anrede</label><select name="anrede"><option value="">bitte wählen Sie</option><option>Frau</option><option>Herr</option><option>Divers</option><option>Firma</option></select></div>
+            <div class="field"><label>Vorname <em>*</em></label><input name="vorname" required></div>
+            <div class="field"><label>Name <em>*</em></label><input name="name" required></div>
+          </div>
+          <div class="grid2">
+            <div class="field"><label>Straße & Hausnummer <em>*</em></label><input name="strasse" required></div>
+            <div class="field"><label>PLZ & Ort <em>*</em></label><input name="ort" required></div>
+            <div class="field"><label>Telefon <em>*</em></label><input name="telefon" type="tel" required></div>
+            <div class="field"><label>E-Mail</label><input name="email" type="email"></div>
+          </div>
+          <h3>Was soll graviert werden?</h3>
+          <div class="field"><label>Art des Schildes <em>*</em></label>
+            <div class="chips">
+              <label><input type="checkbox" name="schild" value="Klingelschild"><span>Klingelschild</span></label>
+              <label><input type="checkbox" name="schild" value="Briefkastenschild"><span>Briefkastenschild</span></label>
+              <label><input type="checkbox" name="schild" value="Türschild"><span>Türschild</span></label>
+              <label><input type="checkbox" name="schild" value="Stellplatzschild"><span>Stellplatz / Parkplatz</span></label>
+              <label><input type="checkbox" name="schild" value="Hausnummer"><span>Hausnummer</span></label>
+            </div>
+          </div>
+          <div class="grid2">
+            <div class="field"><label>Anzahl Schilder</label><input name="anzahl" type="number" min="1" value="1"></div>
+            <div class="field"><label>Wohnung / Stellplatz-Nr.</label><input name="position"></div>
+          </div>
+          <div class="field"><label>Gewünschter Text <em>*</em></label><textarea name="text" required placeholder="z. B. „Müller / Schmidt“ – bitte genau wie gewünscht (Groß-/Kleinschreibung)"></textarea></div>
+          <div class="field"><label>Foto vom vorhandenen Schild (hilft bei Größe & Material)</label><div data-drop></div></div>
+          <label class="consent"><input type="checkbox" name="datenschutz" required><span>Mit Absenden dieses Formulars stimmen Sie der Übermittlung und Verarbeitung Ihrer Daten wie in unserer <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> beschrieben zu. <em class="blue">*</em></span></label>
+          <button class="btn btn-primary" type="submit">Gravur anfragen →</button>
+        </form>
+      </div>
+      <aside class="info-card" id="info"></aside>
+    </div>
+  </div>
+</section>
+
+<script type="module" src="/js/main.js"></script>
+</body>
+</html>
