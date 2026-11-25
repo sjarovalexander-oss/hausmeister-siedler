@@ -185,11 +185,12 @@ function renderCfg() {
     const s = SERVICES.find((x) => x.id === id), c = CALC[id];
     const el = document.createElement('div'); el.className = 'w-item'; el.dataset.id = id;
     const fromObj = c.obj ? `<div class="w-from">${icon('building', 16)} ${c.obj.map((o) => `${S.obj[o]} ${{ we: 'Wohneinheiten', etagen: 'Etagen', th: 'Treppenhäuser' }[o]}`).join(' · ')}</div>` : '';
-    el.innerHTML = `<div class="w-item-h"><span class="w-ic">${icon(s.icon, 22)}</span><b>${s.title}</b><em class="w-p"></em><button class="w-rm" aria-label="Entfernen">${icon('close', 14)}</button></div>
+    el.innerHTML = `<div class="w-item-h"><span class="w-ic">${icon(s.icon, 22)}</span><b>${s.title}</b><button class="w-rm" aria-label="Entfernen">${icon('close', 14)}</button></div>
       ${fromObj}
       ${c.fields.map((f) => `<div class="w-range"><label><span>${f.label}</span><b><output>${st.v[f.k]}</output> ${f.unit}</b></label><input type="range" data-k="${f.k}" min="${f.min}" max="${f.max}" step="${f.step}" value="${st.v[f.k]}"></div>`).join('')}
-      ${c.freq.length > 1 ? `<div class="w-seg">${c.freq.map((f, i) => `<button data-f="${i}" class="${i === st.f ? 'on' : ''}">${f.label}</button>`).join('')}</div>` : `<div class="w-seg"><button class="on">${c.freq[0].label}</button></div>`}`;
-    const upd = () => { const p = priceOf(id, st, S.obj); $('.w-p', el).innerHTML = `${span(p)}<small>${p.kind === 'rec' ? '/Monat' : p.kind === 'once' ? 'einmalig' : 'je Einsatz'}</small>`; };
+      ${c.freq.length > 1 ? `<div class="w-seg">${c.freq.map((f, i) => `<button data-f="${i}" class="${i === st.f ? 'on' : ''}">${f.label}</button>`).join('')}</div>` : `<div class="w-seg"><button class="on">${c.freq[0].label}</button></div>`}
+      <div class="w-p"></div>`;
+    const upd = () => { const p = priceOf(id, st, S.obj); $('.w-p', el).innerHTML = `<small>${p.kind === 'rec' ? 'pro Monat' : p.kind === 'once' ? 'einmalig' : 'je Einsatz'}</small><b>${span(p)}</b>`; };
     $$('input[type=range]', el).forEach((r) => {
       const paint = () => r.style.setProperty('--p', `${((r.value - r.min) / (r.max - r.min)) * 100}%`); paint();
       r.oninput = () => { st.v[r.dataset.k] = +r.value; $('output', r.parentElement).textContent = r.value; paint(); upd(); price(); };
