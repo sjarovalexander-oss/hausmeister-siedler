@@ -2,7 +2,7 @@
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
 
 const OUT = 'dist';
-const COPY = ['index.html', 'leistungen.html', 'kostenrechner.html', 'impressum.html', 'datenschutz.html', 'css', 'js', 'assets'];
+const COPY = ['index.html', 'kostenrechner.html', 'impressum.html', 'datenschutz.html', 'css', 'js', 'assets'];
 fs.rmSync(OUT, { recursive: true, force: true });
 for (const f of COPY) fs.cpSync(f, path.join(OUT, f), { recursive: true });
 
@@ -17,6 +17,7 @@ for (const s of SERVICES) {
     .replace('data-id=""', `data-id="${s.id}"`);
   fs.writeFileSync(path.join(OUT, 'leistungen', `${slug(s)}.html`), html);
 }
+fs.copyFileSync('leistungen.html', path.join(OUT, 'leistungen', 'index.html'));
 console.log('✓', SERVICES.length, 'Leistungsseiten');
 
 const media = JSON.parse(fs.readFileSync('media.json', 'utf8'));
