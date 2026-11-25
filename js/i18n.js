@@ -53,6 +53,18 @@ const BG = {
   'Ein sauberes Büro steigert Wohlbefinden und Eindruck bei Kunden. Wir reinigen Arbeitsplätze, Böden, Teeküchen und Sanitärbereiche zuverlässig vor oder nach Ihren Arbeitszeiten – täglich, wöchentlich oder nach Bedarf.': 'Чистият офис подобрява настроението и впечатлението на клиентите. Почистваме работните места, подовете, кухненските кътове и санитарните помещения надеждно преди или след работното Ви време – ежедневно, седмично или при нужда.',
   'Keller, Dachboden, Wohnung oder ganzes Haus: Wir räumen schnell und diskret, entsorgen fachgerecht und übergeben besenrein. Nach einer kostenlosen Besichtigung erhalten Sie einen Festpreis.': 'Мазе, таван, апартамент или цяла къща: разчистваме бързо и дискретно, изхвърляме правилно и предаваме пометено. След безплатен оглед получавате твърда цена.',
 
+
+  // Karriere & Kontakt Seiten
+  'Inhabergeführt, faire Bezahlung, moderne Maschinen und ein Team, das zusammenhält. Klappen Sie eine Stelle auf und bewerben Sie sich direkt online – in zwei Minuten.': 'Семейна фирма, честно заплащане, модерна техника и екип, който държи един на друг. Отворете позиция и кандидатствайте директно онлайн – за две минути.',
+  'Offene Stellen ansehen': 'Вижте свободните позиции', 'Offene Stellen ansehen →': 'Вижте свободните позиции →',
+  'Wir suchen Verstärkung in der Gebäudereinigung und der Grün- und Außenanlagenpflege. 30 Tage Urlaub, gute Bezahlung, moderne Maschinen.': 'Търсим хора за почистване на сгради и поддръжка на зелени площи. 30 дни отпуск, добро заплащане, модерна техника.',
+  'Allgemeine Anfrage, Zählerablesung oder neue Klingelschilder – wählen Sie unten das passende Formular. Lieber direkt? Rufen Sie an oder schreiben Sie per WhatsApp.': 'Общо запитване, отчитане на уреди или нови табелки – изберете подходящата форма отдолу. Предпочитате директно? Обадете се или пишете в WhatsApp.',
+  'Fragen, Angebot, kostenlose Besichtigung': 'Въпроси, оферта, безплатен оглед', 'Strom, Gas, Wasser, Heizung': 'Ток, газ, вода, отопление',
+  'Klingel, Briefkasten, Tür, Stellplatz': 'Звънец, пощенска кутия, врата, паркомясто', 'Preisspanne in 60 Sekunden': 'Ценови диапазон за 60 секунди',
+  'Karriere · Hausmeisterservice Siedler GmbH': 'Кариери · Hausmeisterservice Siedler GmbH', 'Kontakt · Hausmeisterservice Siedler GmbH': 'Контакт · Hausmeisterservice Siedler GmbH',
+  'Jobs bei der Hausmeisterservice Siedler GmbH in Grenzach-Wyhlen: Gebäudereinigung, Grün- und Außenanlagenpflege. Jetzt direkt online bewerben.': 'Работа в Hausmeisterservice Siedler GmbH в Гренцах-Вилен: почистване на сгради, поддръжка на зелени площи. Кандидатствайте онлайн.',
+  'Kontakt zur Hausmeisterservice Siedler GmbH: allgemeine Anfrage, Zählerablesung beauftragen, Gravur für Klingel- und Türschilder. Telefon, WhatsApp, E-Mail.': 'Контакт с Hausmeisterservice Siedler GmbH: общо запитване, отчитане на уреди, гравиране на табелки. Телефон, WhatsApp, имейл.',
+
   // Navigation & allgemein
   'Hausmeisterservice': 'Hausmeisterservice', 'Leistungen': 'Услуги', 'Kostenrechner': 'Калкулатор', 'Über uns': 'За нас', 'Galerie': 'Галерия',
   'Karriere': 'Кариери', 'Kontakt': 'Контакт', 'Anrufen': 'Обадете се', 'Startseite': 'Начало', 'Menü': 'Меню', 'Schließen': 'Затвори', 'Entfernen': 'Премахни',

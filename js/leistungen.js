@@ -42,7 +42,7 @@ if (page === 'detail') {
       <span class="eyebrow">${CATS[s.cat]}</span>
       <h1>${s.title}</h1>
       <p class="lead">${s.short}</p>
-      <div class="hero-cta"><button class="btn btn-primary" data-calc="${s.id}">${icon('calc', 18)} Preis berechnen</button><a class="btn btn-ghost" href="/#kontakt">Anfragen</a></div>
+      <div class="hero-cta"><button class="btn btn-primary" data-calc="${s.id}">${icon('calc', 18)} Preis berechnen</button><a class="btn btn-ghost" href="/kontakt">Anfragen</a></div>
     </div>
   </section>
   <section class="l-body">
