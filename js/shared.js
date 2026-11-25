@@ -27,6 +27,9 @@ export function chrome() {
   document.body.prepend(header);
   $('.burger', header).onclick = () => header.classList.toggle('open');
   $$('.nav a', header).forEach((a) => (a.onclick = () => header.classList.remove('open')));
+  // aktuelle Seite im Menü markieren
+  const here = location.pathname.replace(/\/$/, '') || '/';
+  $$('.nav a', header).forEach((a) => { const h = a.getAttribute('href'); if (h !== '/' && (here === h || here.startsWith(h + '/'))) { a.classList.add('active'); a.setAttribute('aria-current', 'page'); } });
   const onScroll = () => header.classList.toggle('scrolled', scrollY > 20);
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
