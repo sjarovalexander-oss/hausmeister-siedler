@@ -1,6 +1,7 @@
 import { SERVICES, PRICES as P, VAT } from './config.js';
 import { icon } from './icons.js';
 import { $, $$, chrome, eur, fileDrop, submitForm } from './shared.js';
+import { initI18n } from './i18n.js';
 
 chrome();
 
@@ -171,3 +172,4 @@ $('#f-calc').onsubmit = async (e) => {
 const pre = new URLSearchParams(location.search).get('s');
 if (pre && CALC[pre]) add(pre);
 render();
+initI18n();

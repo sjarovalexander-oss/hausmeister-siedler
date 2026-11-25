@@ -7,7 +7,7 @@ const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<
 const LABELS = {
   anrede: 'Anrede', vorname: 'Vorname', name: 'Name', firma: 'Firma', postfach: 'Postfach', plz: 'PLZ', ort: 'Ort', strasse: 'Straße', hausnr: 'Hausnummer',
   telefon: 'Telefon', telefon_geschaeftlich: 'Telefon (geschäftlich)', telefon_mobil: 'Telefon (mobil)', email: 'E-Mail', erreichbar: 'Erreichbar',
-  anliegen: 'Informationen zu', mitteilung: 'Mitteilung', kopie: 'Kopie an Absender', datenschutz: 'Datenschutz akzeptiert',
+  anliegen: 'Informationen zu', mitteilung: 'Mitteilung', kopie: 'Kopie an Absender', datenschutz: 'Datenschutz akzeptiert', sprache: 'Sprache der Website',
 };
 
 export default async function handler(req, res) {

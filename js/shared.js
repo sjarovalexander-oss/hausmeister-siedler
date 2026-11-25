@@ -117,6 +117,7 @@ export async function submitForm(form, type, extra = {}) {
     if (v instanceof File) continue;
     data[k] = k in data ? `${data[k]}, ${v}` : v;
   }
+  data.sprache = document.documentElement.lang === 'bg' ? 'Bulgarisch' : 'Deutsch';
   const btn = $('button[type=submit]', form);
   const msg = $('.form-msg', form) || form.appendChild(Object.assign(document.createElement('div'), { className: 'form-msg' }));
   btn.disabled = true; btn.dataset.t = btn.dataset.t || btn.innerHTML; btn.innerHTML = 'Wird gesendet …';

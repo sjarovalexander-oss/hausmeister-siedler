@@ -1,6 +1,7 @@
 import { SITE, SERVICES, CATS } from './config.js';
 import { icon } from './icons.js';
 import { $, $$, chrome, reveal, fileDrop, submitForm, modal } from './shared.js';
+import { initI18n, t } from './i18n.js';
 
 chrome();
 
@@ -141,9 +142,9 @@ $$('form.panel').forEach((f) => {
   f.onsubmit = async (e) => {
     e.preventDefault();
     if (f.id === 'f-allg' && !$$('[data-phone]', f).some((i) => i.value.trim())) {
-      $('[data-phone]', f).focus(); alert('Bitte geben Sie mindestens eine Telefonnummer an.'); return;
+      $('[data-phone]', f).focus(); alert(t('Bitte geben Sie mindestens eine Telefonnummer an.')); return;
     }
-    if (f.id === 'f-gravur' && !$$('[name=schild]:checked', f).length) { alert('Bitte wählen Sie die Art des Schildes.'); return; }
+    if (f.id === 'f-gravur' && !$$('[name=schild]:checked', f).length) { alert(t('Bitte wählen Sie die Art des Schildes.')); return; }
     if (f.id === 'f-zaehler') {
       try {
         if ($('[name=speichern]:checked', f).value === 'ja') localStorage.setItem(KEY, JSON.stringify(Object.fromEntries(ADDR.map((k) => [k, $(`[name=${k}]`, f)?.value || '']))));
@@ -156,3 +157,4 @@ $$('form.panel').forEach((f) => {
 });
 
 reveal();
+initI18n();

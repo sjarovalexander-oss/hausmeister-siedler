@@ -44,6 +44,9 @@ section{padding:110px 0;position:relative}
 .nav{display:flex;gap:4px}
 .nav a{text-decoration:none;font:700 .92rem var(--f-h);padding:10px 14px;border-radius:999px;transition:.2s}
 .nav a:hover{background:var(--blue-l);color:var(--blue)}
+.lang{display:flex;background:#EEF2F6;border-radius:999px;padding:3px}
+.lang button{border:0;background:none;padding:7px 11px;border-radius:999px;font:800 .78rem var(--f-h);cursor:pointer;color:var(--muted)}
+.lang button.on{background:var(--ink);color:#fff}
 .burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
 
 /* Floating contact */
@@ -272,3 +275,6 @@ section{padding:110px 0;position:relative}
   .brand span{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+/* Bulgarisch */
+:lang(bg) .hero h1{font-size:clamp(2.2rem,4.8vw,3.9rem)}
+:lang(bg) .hero h1 .stroke{color:var(--ink);-webkit-text-stroke:0;background:linear-gradient(transparent 62%,var(--pink) 62% 90%,transparent 90%)}
