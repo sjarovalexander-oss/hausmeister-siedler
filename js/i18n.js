@@ -56,7 +56,7 @@ const BG = {
 
   // Karriere & Kontakt Seiten
   'Inhabergeführt, faire Bezahlung, moderne Maschinen und ein Team, das zusammenhält. Klappen Sie eine Stelle auf und bewerben Sie sich direkt online – in zwei Minuten.': 'Семейна фирма, честно заплащане, модерна техника и екип, който държи един на друг. Отворете позиция и кандидатствайте директно онлайн – за две минути.',
-  'Offene Stellen ansehen': 'Вижте свободните позиции', 'Offene Stellen': 'Свободни позиции', 'Offene Stellen ansehen →': 'Вижте свободните позиции →',
+  'Offene Stellen ansehen': 'Вижте свободните позиции', 'Offene Stellen': 'Свободни позиции', 'Über uns · Hausmeisterservice Siedler GmbH': 'За нас · Hausmeisterservice Siedler GmbH', 'Über die Hausmeisterservice Siedler GmbH: inhabergeführt aus Grenzach-Wyhlen, Einsatzgebiet am Hochrhein, Bilder und Videos unserer Arbeit.': 'За Hausmeisterservice Siedler GmbH: семейна фирма от Гренцах-Вилен, район на работа по Горен Рейн, снимки и видео от работата ни.', 'Offene Stellen ansehen →': 'Вижте свободните позиции →',
   'Wir suchen Verstärkung in der Gebäudereinigung und der Grün- und Außenanlagenpflege. 30 Tage Urlaub, gute Bezahlung, moderne Maschinen.': 'Търсим хора за почистване на сгради и поддръжка на зелени площи. 30 дни отпуск, добро заплащане, модерна техника.',
   'Allgemeine Anfrage, Zählerablesung oder neue Klingelschilder – wählen Sie unten das passende Formular. Lieber direkt? Rufen Sie an oder schreiben Sie per WhatsApp.': 'Общо запитване, отчитане на уреди или нови табелки – изберете подходящата форма отдолу. Предпочитате директно? Обадете се или пишете в WhatsApp.',
   'Fragen, Angebot, kostenlose Besichtigung': 'Въпроси, оферта, безплатен оглед', 'Strom, Gas, Wasser, Heizung': 'Ток, газ, вода, отопление',

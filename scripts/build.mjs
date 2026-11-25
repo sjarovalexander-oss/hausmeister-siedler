@@ -2,7 +2,7 @@
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
 
 const OUT = 'dist';
-const COPY = ['index.html', 'karriere.html', 'kontakt.html', 'kostenrechner.html', 'impressum.html', 'datenschutz.html', 'css', 'js', 'assets'];
+const COPY = ['index.html', 'karriere.html', 'kontakt.html', 'ueber-uns.html', 'kostenrechner.html', 'impressum.html', 'datenschutz.html', 'css', 'js', 'assets'];
 fs.rmSync(OUT, { recursive: true, force: true });
 for (const f of COPY) fs.cpSync(f, path.join(OUT, f), { recursive: true });
 

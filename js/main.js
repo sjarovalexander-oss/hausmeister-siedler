@@ -45,13 +45,6 @@ $$('.svc').forEach((c) => {
   c.onpointerleave = () => (c.style.transform = '');
 });
 
-// Einsatzgebiet
-$('#areas').innerHTML = SITE.areas.map((a) => `<span>${icon('pin', 14)}${a}</span>`).join('');
-
-// Galerie-Platzhalter
-const galItems = [['Treppenhaus vorher/nachher', 'stairs'], ['Grünpflege', 'leaf'], ['Winterdienst', 'snow'], ['Unser Team', 'user'], ['Fassade', 'building'], ['PV-Reinigung', 'sun'], ['Tiefgarage', 'car']];
-$('#gal').innerHTML = galItems.map(([t, i]) => `<figure>${icon(i, 40)}<figcaption>${t} · Foto folgt</figcaption></figure>`).join('');
-
 
 reveal();
 initI18n();

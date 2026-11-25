@@ -8,10 +8,9 @@ export const eur = (n) => n.toLocaleString('de-DE', { style: 'currency', currenc
 const NAV = [
   ['/leistungen', 'Leistungen'],
   ['/kostenrechner', 'Kostenrechner'],
-  ['/#ueber-uns', 'Über uns'],
-  ['/#galerie', 'Galerie'],
   ['/karriere', 'Karriere'],
   ['/kontakt', 'Kontakt'],
+  ['/ueber-uns', 'Über uns'],
 ];
 
 export function chrome() {
@@ -55,7 +54,7 @@ export function chrome() {
       <div><h4>Kontakt</h4>
         <p><a href="tel:${SITE.phone}">${SITE.phoneDisplay}</a><br><a href="mailto:${SITE.email}">${SITE.email}</a><br>${SITE.hours}</p></div>
       <div><h4>Service</h4>
-        <p><a href="/leistungen">Alle Leistungen</a><br><a href="/kostenrechner">Kostenrechner</a><br><a href="/kontakt#zaehler">Zählerablesung</a><br><a href="/karriere">Jobs</a></p></div>
+        <p><a href="/leistungen">Alle Leistungen</a><br><a href="/kostenrechner">Kostenrechner</a><br><a href="/kontakt#zaehler">Zählerablesung</a><br><a href="/karriere">Jobs</a><br><a href="/ueber-uns">Über uns</a></p></div>
       <div><h4>Rechtliches</h4>
         <p><a href="/impressum">Impressum</a><br><a href="/datenschutz">Datenschutzerklärung</a></p></div>
     </div>
