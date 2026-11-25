@@ -8,13 +8,13 @@ import { t } from './i18n.js';
 const STEPS = ['Objekt', 'Leistungen', 'Details', 'Angebot'];
 const START = ['So bald wie möglich', 'In 4 Wochen', 'In 1–3 Monaten', 'Noch offen'];
 
-let root, house, drop;
+let root, scene, drop, lastAdded = null;
 const S = { step: 0, obj: { type: null, id: null, we: 8, etagen: 3, th: 1 }, items: new Map(), start: null, gross: false, page: false };
 
 export function openWizard({ preset, page = false } = {}) {
   S.page = page;
   if (!root) build();
-  if (preset && CALC[preset] && !S.items.has(preset)) S.items.set(preset, newItem(preset));
+  if (preset && CALC[preset] && !S.items.has(preset)) { S.items.set(preset, newItem(preset)); lastAdded = preset; }
   root.classList.add('open'); document.documentElement.style.overflow = 'hidden';
   go(S.step); refresh();
   $('video', root)?.play().catch(() => {});
@@ -38,7 +38,7 @@ function build() {
     </header>
     <div class="wiz-body">
       <aside class="wiz-side">
-        <div class="wiz-3d"><canvas></canvas><div class="wiz-hint">${icon('sparkle', 16)} <span>Das Haus reagiert auf Ihre Auswahl</span></div></div>
+        <div class="wiz-scene"><div class="sc-layers"></div><div class="sc-cap"><small>Ihr Objekt</small><b>Hausmeisterservice Siedler</b></div><div class="sc-thumbs"></div></div>
         <div class="wiz-price empty">
           <div class="vat"><button class="on" data-v="0">netto</button><button data-v="1">brutto</button></div>
           <small>monatlich ca.</small>
@@ -101,7 +101,7 @@ function build() {
   </div>`;
   document.body.append(root);
 
-  import('./house3d.js').then((m) => { house = m.house3d($('.wiz-3d canvas', root), { mouse: true }); house.set([...S.items.keys()]); }).catch(() => {});
+  scene = makeScene($('.wiz-scene', root));
   drop = fileDrop($('[data-drop]', root), { max: 8, label: 'Fotos vom Objekt hochladen' });
 
   $('.wiz-x', root).onclick = close;
@@ -122,7 +122,7 @@ function build() {
     i.value = +i.value + (b.dataset.inc ? 1 : -1); S.obj[k] = clamp(i); refresh();
   }));
   $$('.w-tile', root).forEach((b) => (b.onclick = () => {
-    const id = b.dataset.s; S.items.has(id) ? S.items.delete(id) : S.items.set(id, newItem(id)); refresh();
+    const id = b.dataset.s; if (S.items.has(id)) { S.items.delete(id); if (lastAdded === id) lastAdded = null; } else { S.items.set(id, newItem(id)); lastAdded = id; } refresh();
   }));
   $$('[data-start]', root).forEach((b) => (b.onclick = () => { S.start = b.dataset.start; refresh(); }));
   $$('.vat button', root).forEach((b) => (b.onclick = () => { S.gross = b.dataset.v === '1'; $$('.vat button', root).forEach((x) => x.classList.toggle('on', x === b)); refresh(); }));
@@ -154,7 +154,7 @@ function refresh() {
   $$('[data-obj]', root).forEach((i) => { if (document.activeElement !== i) i.value = S.obj[i.dataset.obj]; });
   $$('.w-tile', root).forEach((b) => b.classList.toggle('on', S.items.has(b.dataset.s)));
   $$('[data-start]', root).forEach((b) => b.classList.toggle('on', b.dataset.start === S.start));
-  house?.set([...S.items.keys()]);
+  scene?.update([...S.items.keys()], lastAdded);
   const n = S.items.size;
   $('.w-count', root).textContent = n ? `${n} ${n === 1 ? 'Leistung' : 'Leistungen'} gewählt` : '';
   price();
@@ -194,7 +194,7 @@ function renderCfg() {
       r.oninput = () => { st.v[r.dataset.k] = +r.value; $('output', r.parentElement).textContent = r.value; paint(); upd(); price(); };
     });
     $$('[data-f]', el).forEach((b) => (b.onclick = () => { st.f = +b.dataset.f; $$('[data-f]', el).forEach((x) => x.classList.toggle('on', x === b)); upd(); price(); }));
-    $('.w-rm', el).onclick = () => { S.items.delete(id); el.remove(); refresh(); $('.w-empty', root).hidden = !!S.items.size; };
+    $('.w-rm', el).onclick = () => { S.items.delete(id); if (lastAdded === id) lastAdded = null; el.remove(); refresh(); $('.w-empty', root).hidden = !!S.items.size; };
     upd(); box.append(el);
   }
 }
@@ -228,4 +228,38 @@ function summary() {
   });
   const { rec, once } = totals(S.items, S.obj);
   return `Objekt: ${S.obj.type || '–'} · ${S.obj.we} WE · ${S.obj.etagen} Etagen · ${S.obj.th} Treppenhäuser\nStart: ${S.start || '–'}\n${rows.join('\n')}\nMonatlich: ${eur(rec.min)}–${eur(rec.max)} netto · Einmalig: ${once.max ? `${eur(once.min)}–${eur(once.max)} netto` : '–'}`;
+}
+
+// ---- Foto-Szenen (Higgsfield): wechseln je nach gewählter Leistung ----
+const SCENE = { hausmeister: 'hausmeister', treppenhaus: 'treppe', gruen: 'gruen', winter: 'winter', muelltonnen: 'tonnen', glas: 'glas', fassade: 'fassade',
+  tiefgarage: 'garage', doppelparker: 'garage', grund: 'wohnung', gravur: 'gravur', reparatur: 'reparatur', end: 'wohnung', bau: 'wohnung',
+  solar: 'solar', notdienst: 'notdienst', buero: 'buero', entruempelung: 'entruempel' };
+const src = (k) => `/assets/media/s-${k}.jpg`;
+
+function makeScene(el) {
+  const layers = $('.sc-layers', el), cap = $('.sc-cap', el), thumbs = $('.sc-thumbs', el);
+  let cur = null, pinned = null;
+  const show = (key, title) => {
+    if (key === cur) return; cur = key;
+    const img = new Image(); img.src = src(key); img.alt = ''; img.className = 'sc-img';
+    const put = () => {
+      layers.append(img); requestAnimationFrame(() => img.classList.add('on'));
+      [...layers.children].slice(0, -1).forEach((o) => { o.classList.remove('on'); setTimeout(() => o.remove(), 1200); });
+    };
+    img.decode ? img.decode().then(put, put) : (img.onload = put);
+    cap.innerHTML = `<small>${title ? t('Ihre Auswahl') : t('Ihr Objekt')}</small><b>${title ? t(title) : 'Hausmeisterservice Siedler'}</b>`;
+    cap.classList.remove('pop'); void cap.offsetWidth; cap.classList.add('pop');
+  };
+  show('base');
+  // Bilder vorladen
+  setTimeout(() => new Set(Object.values(SCENE)).forEach((k) => { const i = new Image(); i.src = src(k); }), 800);
+  return {
+    update(ids, last) {
+      if (pinned && !ids.includes(pinned)) pinned = null;
+      const id = pinned || (last && ids.includes(last) ? last : ids[ids.length - 1]);
+      show(id ? SCENE[id] : 'base', id && SERVICES.find((s) => s.id === id).title);
+      thumbs.innerHTML = ids.map((i) => `<button data-t="${i}" class="${i === id ? 'on' : ''}" title="${t(SERVICES.find((s) => s.id === i).title)}"><img src="${src(SCENE[i])}" alt=""></button>`).join('');
+      $$('button', thumbs).forEach((b) => (b.onclick = () => { pinned = b.dataset.t; this.update(ids, last); }));
+    },
+  };
 }

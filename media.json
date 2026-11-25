@@ -6,5 +6,69 @@
   "court": {
     "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_130234_df74b50c-2cc2-49b7-a131-175b80b64cfd.png",
     "video": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_130331_a130fccf-f1bc-407a-85a2-c06e21b1a623.mp4"
+  },
+  "s-base": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131636_f462c0ff-8195-4e21-b554-ae3e17d9d41a.png",
+    "w": 900
+  },
+  "s-winter": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131806_af7931d3-1d93-410b-8849-b68141e138b6.png",
+    "w": 900
+  },
+  "s-gruen": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131740_1b10c26c-5f8d-4862-ab7b-5cbaeefcd9cd.png",
+    "w": 900
+  },
+  "s-solar": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131747_eea082c6-a58f-4a00-8625-0b594fadd6cf.png",
+    "w": 900
+  },
+  "s-glas": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131804_e63e73ec-a487-4528-b356-7a0c58c9a431.png",
+    "w": 900
+  },
+  "s-fassade": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131740_16f6aa8f-4938-4bec-9cf4-adb3f11cc5b0.png",
+    "w": 900
+  },
+  "s-hausmeister": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131738_90b0b030-6db9-440b-b5aa-76413c2abb6a.png",
+    "w": 900
+  },
+  "s-tonnen": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131743_c83c5c7e-9f36-49cd-bd54-bf05947497a9.png",
+    "w": 900
+  },
+  "s-notdienst": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131742_aaf5f678-dc06-42c9-95de-e8b4b884a548.png",
+    "w": 900
+  },
+  "s-entruempel": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131744_b8ddc35b-e9f8-4fdf-b726-bfffd3c5bf96.png",
+    "w": 900
+  },
+  "s-treppe": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131737_2ee430cf-77f0-4954-980c-e307f406c4e2.png",
+    "w": 900
+  },
+  "s-garage": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131737_3ac3c0fd-57ea-495f-8f26-71ba5cc63528.png",
+    "w": 900
+  },
+  "s-wohnung": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131748_be0a5d87-9283-446a-bb88-8215101a7daf.png",
+    "w": 900
+  },
+  "s-buero": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131754_79afb846-30b5-4a1c-ae30-78f45afe5ca7.png",
+    "w": 900
+  },
+  "s-gravur": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131753_f4cbac2a-9946-4928-b17e-8a4b9c76fdee.png",
+    "w": 900
+  },
+  "s-reparatur": {
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3Hb8aAx5bTAdhpgfXGPPCxJrCKL/hf_20261125_131752_ac84d4d9-1638-4682-a458-22a10eed82f2.png",
+    "w": 900
   }
 }

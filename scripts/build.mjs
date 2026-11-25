@@ -15,11 +15,11 @@ async function get(url, file) {
   const r = await fetch(url); if (!r.ok) throw new Error(`${r.status} ${url}`);
   fs.writeFileSync(file, Buffer.from(await r.arrayBuffer()));
 }
-for (const [name, m] of Object.entries(media)) {
+await Promise.all(Object.entries(media).map(async ([name, m]) => {
   try {
     if (m.image) {
       const src = path.join(dir, `${name}.src.png`); await get(m.image, src);
-      if (ffmpeg) execFileSync(ffmpeg, ['-y', '-loglevel', 'error', '-i', src, '-vf', 'scale=1920:-2', '-q:v', '4', path.join(dir, `${name}.jpg`)]);
+      if (ffmpeg) execFileSync(ffmpeg, ['-y', '-loglevel', 'error', '-i', src, '-vf', `scale=${m.w || 1920}:-2`, '-q:v', '4', path.join(dir, `${name}.jpg`)]);
       else fs.copyFileSync(src, path.join(dir, `${name}.jpg`));
       fs.rmSync(src);
     }
@@ -31,4 +31,4 @@ for (const [name, m] of Object.entries(media)) {
     }
     console.log('✓', name, fs.readdirSync(dir).filter((f) => f.startsWith(name)).map((f) => `${f} ${(fs.statSync(path.join(dir, f)).size / 1e6).toFixed(1)}MB`).join(', '));
   } catch (e) { console.warn('✗', name, e.message); }
-}
+}));

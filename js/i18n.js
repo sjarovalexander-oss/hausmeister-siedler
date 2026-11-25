@@ -16,7 +16,7 @@ const BG = {
   'Ihre Schätzung': 'Вашата оценка', 'pro Monat': 'на месец', 'Unverbindliches Angebot anfordern': 'Поискайте оферта без ангажимент',
   'Gesamt pro Jahr': 'Общо на година', 'Einmalige Leistungen': 'Еднократни услуги', 'Vielen Dank!': 'Благодарим Ви!',
   'Ihre Anfrage ist eingegangen. Wir melden uns schnellstmöglich für die kostenlose Besichtigung.': 'Получихме запитването Ви. Ще се свържем с Вас възможно най-скоро за безплатния оглед.',
-  'Ihr Name': 'Вашето име', 'Wählen Sie Leistungen – der Preis erscheint sofort.': 'Изберете услуги – цената се появява веднага.', '← Zurück': '← Назад', 'Weiter →': 'Напред →', 'Das Haus reagiert auf Ihre Auswahl': 'Къщата реагира на избора Ви',
+  'Ihr Name': 'Вашето име', 'Ihre Auswahl': 'Вашият избор', 'Ihr Objekt': 'Вашият обект', 'Wählen Sie Leistungen – der Preis erscheint sofort.': 'Изберете услуги – цената се появява веднага.', '← Zurück': '← Назад', 'Weiter →': 'Напред →', 'Das Haus reagiert auf Ihre Auswahl': 'Къщата реагира на избора Ви',
   'Was brauchen Sie?': 'От какво имате нужда?', 'Alle Leistungen berechnen →': 'Изчислете всички услуги →',
 
   // Navigation & allgemein
