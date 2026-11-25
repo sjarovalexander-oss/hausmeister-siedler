@@ -2,5 +2,7 @@
   "name": "hausmeister-siedler",
   "private": true,
   "type": "module",
+  "scripts": { "build": "node scripts/build.mjs" },
+  "devDependencies": { "ffmpeg-static": "^5.2.0" },
   "engines": { "node": ">=18" }
 }

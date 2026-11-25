@@ -9,76 +9,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/rechner.css">
+<link rel="stylesheet" href="/css/wizard.css">
 </head>
-<body>
-<section class="calc-hero">
-  <div class="wrap">
-    <span class="eyebrow">Kostenrechner</span>
-    <h1>Was kostet Ihr <span class="blue">Rundum-Service?</span></h1>
-    <p class="lead">Objekt wählen, Leistungen zusammenstellen, Größen anpassen – Sie sehen sofort eine realistische Preisspanne. Das verbindliche Angebot folgt nach der kostenlosen Besichtigung.</p>
-  </div>
-</section>
-
-<section style="padding-top:20px">
-  <div class="wrap calc">
-    <div class="calc-main">
-      <div class="cstep">
-        <div class="cstep-h"><b>1</b><h2>Welches Objekt?</h2></div>
-        <div class="objs" id="objs"></div>
-        <div class="grid3 obj-fields" id="objFields"></div>
-      </div>
-      <div class="cstep">
-        <div class="cstep-h"><b>2</b><h2>Welche Leistungen?</h2></div>
-        <p class="hint" style="margin:0 0 16px">Antippen zum Hinzufügen – danach Größe und Rhythmus anpassen.</p>
-        <div class="pick" id="pick"></div>
-      </div>
-      <div class="cstep" id="cfgWrap" hidden>
-        <div class="cstep-h"><b>3</b><h2>Details anpassen</h2></div>
-        <div id="cfg"></div>
-      </div>
-    </div>
-
-    <aside class="sum" id="sum">
-      <div class="sum-card">
-        <div class="sum-top">
-          <span>Ihre Schätzung</span>
-          <div class="vat"><button class="on" data-v="0">netto</button><button data-v="1">brutto</button></div>
-        </div>
-        <div class="big"><small>monatlich ca.</small><b id="mon">0 €</b></div>
-        <div class="sub"><span>pro Jahr</span><b id="yr">–</b></div>
-        <div class="sub"><span>einmalige Leistungen</span><b id="one">–</b></div>
-        <div class="lines" id="lines"><p class="empty">Noch keine Leistung gewählt.</p></div>
-        <button class="btn btn-primary" id="goReq" style="width:100%;justify-content:center" disabled>Unverbindliches Angebot anfordern →</button>
-        <p class="fine">Unverbindliche Richtwerte auf Basis üblicher Marktpreise 2026 in Deutschland. Der genaue Preis hängt von Zugänglichkeit, Verschmutzung und Aufwand vor Ort ab. Besichtigung und Angebot sind kostenlos.</p>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<section id="anfrage" style="padding-top:0" hidden>
-  <div class="wrap" style="max-width:900px">
-    <form class="panel form" id="f-calc">
-      <span class="eyebrow">Letzter Schritt</span>
-      <h2 style="margin-bottom:8px">Angebot anfordern</h2>
-      <p class="lead" style="margin-bottom:24px">Ihre Auswahl wird mitgeschickt. Fotos vom Objekt helfen uns, schneller und genauer anzubieten.</p>
-      <div class="grid2">
-        <div class="field"><label>Name <em>*</em></label><input name="name" required></div>
-        <div class="field"><label>Firma / Hausverwaltung</label><input name="firma"></div>
-        <div class="field"><label>Telefon <em>*</em></label><input name="telefon" type="tel" required></div>
-        <div class="field"><label>E-Mail <em>*</em></label><input name="email" type="email" required></div>
-        <div class="field full"><label>Objektadresse <em>*</em></label><input name="objektadresse" required placeholder="Straße, Hausnummer, PLZ, Ort"></div>
-        <div class="field"><label>Wunschtermin Besichtigung</label><input name="wunschtermin" type="date"></div>
-        <div class="field"><label>Rückruf am besten</label><select name="rueckruf"><option>Vormittags</option><option>Nachmittags</option><option>Abends</option><option>Egal</option></select></div>
-      </div>
-      <div class="field"><label>Fotos vom Objekt</label><div data-drop></div></div>
-      <div class="field"><label>Mitteilung</label><textarea name="mitteilung" placeholder="Besonderheiten, Zugang, Schlüssel, Fragen …"></textarea></div>
-      <label class="consent"><input type="checkbox" name="datenschutz" required><span>Mit Absenden dieses Formulars stimmen Sie der Übermittlung und Verarbeitung Ihrer Daten wie in unserer <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> beschrieben zu. <em class="blue">*</em></span></label>
-      <button class="btn btn-primary" type="submit">Angebot anfordern →</button>
-    </form>
-  </div>
-</section>
-
-<script type="module" src="/js/rechner.js"></script>
+<body style="background:#0B0F14">
+<script type="module">
+import { openWizard } from '/js/wizard.js';
+import { initI18n } from '/js/i18n.js';
+openWizard({ page: true, preset: new URLSearchParams(location.search).get('s') || undefined });
+initI18n();
+</script>
 </body>
 </html>

@@ -6,6 +6,19 @@ export const lang = (() => { try { return localStorage.getItem('siedler_lang') =
 export const setLang = (l) => { try { localStorage.setItem('siedler_lang', l); } catch {} location.reload(); };
 
 const BG = {
+
+  // Großer Kostenrechner & Video-Hero
+  'Schritt 1 von 4': 'Стъпка 1 от 4', 'Schritt 2 von 4': 'Стъпка 2 от 4', 'Schritt 3 von 4': 'Стъпка 3 от 4', 'Schritt 4 von 4': 'Стъпка 4 от 4',
+  'Objekt': 'Обект', 'Details': 'Подробно', 'Angebot': 'Оферта',
+  'Um welches Objekt geht es?': 'За какъв обект става дума?', 'Welche Unterstützung benötigen Sie?': 'С какво да Ви помогнем?',
+  'Wann soll es losgehen?': 'Кога да започнем?', 'So bald wie möglich': 'Възможно най-скоро', 'In 4 Wochen': 'След 4 седмици', 'In 1–3 Monaten': 'След 1–3 месеца', 'Noch offen': 'Още не е ясно',
+  'Größe & Rhythmus anpassen': 'Нагласете размер и честота', 'Bitte wählen Sie zuerst mindestens eine Leistung.': 'Моля, първо изберете поне една услуга.',
+  'Ihre Schätzung': 'Вашата оценка', 'pro Monat': 'на месец', 'Unverbindliches Angebot anfordern': 'Поискайте оферта без ангажимент',
+  'Gesamt pro Jahr': 'Общо на година', 'Einmalige Leistungen': 'Еднократни услуги', 'Vielen Dank!': 'Благодарим Ви!',
+  'Ihre Anfrage ist eingegangen. Wir melden uns schnellstmöglich für die kostenlose Besichtigung.': 'Получихме запитването Ви. Ще се свържем с Вас възможно най-скоро за безплатния оглед.',
+  'Ihr Name': 'Вашето име', '← Zurück': '← Назад', 'Weiter →': 'Напред →', 'Das Haus reagiert auf Ihre Auswahl': 'Къщата реагира на избора Ви',
+  'Was brauchen Sie?': 'От какво имате нужда?', 'Alle Leistungen berechnen →': 'Изчислете всички услуги →',
+
   // Navigation & allgemein
   'Hausmeisterservice': 'Hausmeisterservice', 'Leistungen': 'Услуги', 'Kostenrechner': 'Калкулатор', 'Über uns': 'За нас', 'Galerie': 'Галерия',
   'Karriere': 'Кариери', 'Kontakt': 'Контакт', 'Anrufen': 'Обадете се', 'Startseite': 'Начало', 'Menü': 'Меню', 'Schließen': 'Затвори', 'Entfernen': 'Премахни',
@@ -252,6 +265,7 @@ const BG = {
 // Muster für Texte mit Zahlen
 const RULES = [
   [/^(\d+) Wohneinheiten$/, '$1 апартамента'], [/^(\d+) Etagen × (\d+) TH$/, '$1 етажа × $2 вх.'], [/^(\d+) Etagen$/, '$1 етажа'],
+  [/^(\d+) Treppenhäuser$/, '$1 входа'], [/^(\d+) WE$/, '$1 ап.'], [/^1 Leistung gewählt$/, '1 избрана услуга'], [/^(\d+) Leistungen gewählt$/, '$1 избрани услуги'],
   [/^(\d+) Stk\.$/, '$1 бр.'], [/^(\d+) Std\.$/, '$1 ч.'], [/^(\d+) m² Gehweg$/, '$1 m² тротоар'],
   [/^Hierher ziehen oder klicken · max\. (\d+) Dateien$/, 'Пуснете тук или кликнете · макс. $1 файла'],
   [/^© (\d{4}) (.+) · Alle Rechte vorbehalten$/, '© $1 $2 · Всички права запазени'],
@@ -261,6 +275,7 @@ export function t(s) {
   if (lang !== 'bg' || !s) return s;
   const k = s.trim();
   if (k in BG) return s.replace(k, BG[k]);
+  const st = k.match(/^(\d)\. (.+)$/); if (st && st[2] in BG) return s.replace(k, `${st[1]}. ${BG[st[2]]}`);
   for (const [re, rep] of RULES) if (re.test(k)) return s.replace(k, k.replace(re, rep));
   if (k.includes(' · ')) { const parts = k.split(' · '); const tr = parts.map((p) => t(p)); if (tr.some((x, i) => x !== parts[i])) return s.replace(k, tr.join(' · ')); }
   return s;

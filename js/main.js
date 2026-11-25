@@ -8,8 +8,15 @@ chrome();
 // data-i="name" → Icon voranstellen
 $$('[data-i]').forEach((el) => el.insertAdjacentHTML('afterbegin', icon(el.dataset.i, el.classList.contains('btn') ? 18 : 20)));
 
-// 3D-Haus
-import('./house3d.js').then((m) => m.house3d($('#house3d'))).catch(() => {});
+// Kostenrechner (Vollbild)
+$$('[data-calc]').forEach((b) => (b.onclick = (e) => { e.preventDefault(); import('./wizard.js').then((m) => m.openWizard({ preset: b.dataset.calc || undefined })); }));
+if (location.hash === '#rechner') import('./wizard.js').then((m) => m.openWizard());
+
+// Videos: sanft überblenden beim Loop, nur abspielen wenn sichtbar
+$$('section video').forEach((v) => {
+  new IntersectionObserver(([e]) => { if (e.isIntersecting) { v.preload = 'auto'; v.play().catch(() => {}); } else v.pause(); }).observe(v);
+  v.addEventListener('timeupdate', () => { v.style.opacity = v.duration && v.duration - v.currentTime < 0.6 ? 0.35 : 1; });
+});
 
 // Laufband
 const mq = SERVICES.map((s) => `<span>${s.title}</span>`).join('');
@@ -31,10 +38,11 @@ $$('#filters button').forEach((b) => (b.onclick = () => {
 }));
 const openSvc = (id) => {
   const s = SERVICES.find((x) => x.id === id);
-  modal(`<div class="ic">${icon(s.icon, 32)}</div><span class="eyebrow">${CATS[s.cat]}</span><h2 style="font-size:2rem">${s.title}</h2>
+  const { el: m } = modal(`<div class="ic">${icon(s.icon, 32)}</div><span class="eyebrow">${CATS[s.cat]}</span><h2 style="font-size:2rem">${s.title}</h2>
     <p class="lead" style="margin-top:12px">${s.short}</p>
     <ul>${s.points.map((p) => `<li>${icon('check', 20)}${p}</li>`).join('')}</ul>
-    <div class="btns"><a class="btn btn-primary" href="/kostenrechner?s=${s.id}">${icon('calc', 18)} Kosten berechnen</a><a class="btn btn-ghost" href="#kontakt" onclick="document.querySelector('.modal-x').click()">Anfragen</a></div>`);
+    <div class="btns"><a class="btn btn-primary" href="#" data-pre="${s.id}">${icon('calc', 18)} Kosten berechnen</a><a class="btn btn-ghost" href="#kontakt" onclick="document.querySelector('.modal-x').click()">Anfragen</a></div>`);
+  $('[data-pre]', m).onclick = (e) => { e.preventDefault(); $('.modal-x', m).click(); import('./wizard.js').then((w) => w.openWizard({ preset: id })); };
 };
 $$('.svc').forEach((c) => {
   c.onclick = () => openSvc(c.dataset.id);
