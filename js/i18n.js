@@ -21,7 +21,7 @@ const BG = {
 
 
   // Leistungsseiten
-  'Alle 18 Leistungen →': 'Всички 18 услуги →', 'Alle Leistungen ansehen': 'Вижте всички услуги', 'Alle Leistungen →': 'Всички услуги →',
+  'Alle 18 Leistungen →': 'Всички 18 услуги →', 'Kosten berechnen →': 'Изчислете цената →', 'Alle Leistungen ansehen': 'Вижте всички услуги', 'Alle Leistungen →': 'Всички услуги →',
   'Fassade, Tiefgarage, Büro, Entrümpelung, Gravur, Reparaturen und mehr.': 'Фасади, гаражи, офиси, разчистване, гравиране, ремонти и още.',
   'Alle Leistungen': 'Всички услуги', 'aus einer Hand': 'от една фирма',
   'Vom Treppenhaus bis zum Dach, vom Rasen bis zum Notfall um drei Uhr nachts – wählen Sie eine Leistung für alle Details oder berechnen Sie direkt Ihren Preis.': 'От стълбището до покрива, от тревата до аварията в три през нощта – изберете услуга за подробности или директно изчислете цената си.',
