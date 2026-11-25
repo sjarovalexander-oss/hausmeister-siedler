@@ -167,7 +167,8 @@ function price() {
   const el = $('.wiz-mon', root);
   (function step(tm) {
     const p = Math.min(1, (tm - t0) / 500), e = 1 - (1 - p) ** 3;
-    el.textContent = to.max || from.max ? `${eur(from.min + (to.min - from.min) * e)} – ${eur(from.max + (to.max - from.max) * e)}` : '0 €';
+    el.textContent = to.max || from.max ? `${eur(from.min + (to.min - from.min) * e)} – ${eur(from.max + (to.max - from.max) * e)}` : '–';
+    if (p >= 1 && !to.max) el.textContent = '–';
     if (p < 1 && last === to) requestAnimationFrame(step);
   })(t0);
   $('.wiz-price', root).classList.toggle('empty', !S.items.size);
