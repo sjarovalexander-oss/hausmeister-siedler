@@ -17,6 +17,8 @@ const P = {
   siren: '<path d="M6 18v-6a6 6 0 0 1 12 0v6"/><path d="M4 21h16M12 3V1M4 7 2.5 5.5M20 7l1.5-1.5"/>',
   desk: '<rect x="3" y="4" width="18" height="11" rx="1"/><path d="M8 21h8M12 15v6"/>',
   box: '<path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/>',
+  home: '<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
+  city: '<path d="M3 21V9l5-3v15M8 21V4l7 3v14M15 21V11l6 2v8"/><path d="M2 21h20"/>',
   phone: '<path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/>',
   mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
   wa: '<path d="M3 21l1.6-4.8A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 9c0 3 2.5 6 6 6l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2z"/>',

@@ -4,7 +4,7 @@
 .wiz-bg{position:absolute;inset:0;background:#0B0F14 url(/assets/media/court.jpg) center/cover}
 .wiz-bg video{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
 .wiz-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,rgba(6,14,24,.88) 0%,rgba(6,14,24,.62) 45%,rgba(6,14,24,.45) 100%);backdrop-filter:blur(3px)}
-.wiz-shell{position:relative;height:100%;display:grid;grid-template-rows:auto 1fr auto;transform:scale(.97);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.wiz-shell{position:relative;height:100%;width:100%;max-width:1680px;margin:0 auto;display:grid;grid-template-rows:auto minmax(0,1fr) auto;grid-template-columns:minmax(0,1fr);transform:scale(.97);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .wiz.open .wiz-shell{transform:none}
 .wiz-top{display:flex;align-items:center;gap:24px;padding:18px 28px;color:#fff}
 .wiz-brand{display:flex;align-items:center;gap:10px;font:900 1.05rem var(--f-h)}
@@ -17,7 +17,7 @@
 .seg-s.on{color:#fff}
 .wiz-x{width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;display:grid;place-items:center;transition:.2s}
 .wiz-x:hover{background:#fff;color:var(--ink);transform:rotate(90deg)}
-.wiz-body{display:grid;grid-template-columns:minmax(320px,38%) 1fr;gap:26px;padding:6px 28px 0;min-height:0}
+.wiz-body{display:grid;grid-template-columns:minmax(300px,36%) minmax(0,1fr);gap:26px;padding:6px 28px 0;min-height:0}
 .wiz-side{display:flex;flex-direction:column;gap:16px;min-height:0}
 .wiz-3d{position:relative;flex:1;min-height:240px;border-radius:30px;background:radial-gradient(circle at 50% 60%,rgba(255,255,255,.18),rgba(255,255,255,.04) 70%);border:1px solid rgba(255,255,255,.14);overflow:hidden}
 .wiz-3d canvas{position:absolute;inset:0;width:100%;height:100%}
@@ -32,17 +32,22 @@
 .wiz-sub em{font-style:normal;color:var(--ink);font-weight:800}
 .wiz-bar{height:6px;border-radius:9px;background:#EEF2F6;margin-top:12px;overflow:hidden}
 .wiz-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),#5CB8F5);transition:width .6s cubic-bezier(.2,.8,.2,1)}
-.wiz-main{overflow:auto;border-radius:30px;background:rgba(255,255,255,.97);padding:34px 36px;box-shadow:0 30px 80px -30px rgba(0,0,0,.6);scroll-behavior:smooth}
+.wiz-main{overflow:auto;display:flex;flex-direction:column;border-radius:30px;background:rgba(255,255,255,.97);padding:34px 36px;box-shadow:0 30px 80px -30px rgba(0,0,0,.6);scroll-behavior:smooth}
 .vat{display:flex;border-radius:999px;padding:3px}
 .vat button{border:0;background:none;padding:6px 12px;border-radius:999px;font:700 .75rem var(--f-h);cursor:pointer}
 .wiz-step{padding:0;display:none;animation:wIn .5s cubic-bezier(.2,.8,.2,1)}
-.wiz-step.on{display:block}
+.wiz-step.on{display:block;margin:auto 0;width:100%}
+.wiz-empty-p{font:800 1.05rem var(--f-h);color:var(--muted);display:block;margin:10px 0 6px}
+.wiz-price.empty .wiz-mon,.wiz-price.empty .wiz-sub,.wiz-price.empty .wiz-bar{display:none}
+.wiz-price:not(.empty) .wiz-empty-p{display:none}
 @keyframes wIn{from{opacity:0;transform:translateX(30px)}}
 .wiz-step h2{font-size:clamp(1.6rem,2.6vw,2.3rem);margin-bottom:24px}
+
 .w-ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--blue-l);color:var(--blue);transition:.3s;flex:none}
 .w-check{position:absolute;top:14px;right:14px;width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;transform:scale(0);transition:.3s cubic-bezier(.3,1.6,.5,1)}
 .w-objs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:26px}
-.w-obj{position:relative;text-align:left;border:2px solid var(--line);background:#fff;border-radius:24px;padding:24px;cursor:pointer;display:flex;flex-direction:column;gap:6px;transition:.3s}
+.w-obj .w-ic{width:64px;height:64px;border-radius:20px}
+.w-obj{position:relative;text-align:left;border:2px solid var(--line);background:#fff;border-radius:24px;padding:26px;min-height:150px;cursor:pointer;display:flex;flex-direction:column;gap:6px;transition:.3s}
 .w-obj b{font:900 1.15rem var(--f-h);margin-top:10px}
 .w-obj small{color:var(--muted);font-weight:600}
 .w-obj:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:var(--sh)}

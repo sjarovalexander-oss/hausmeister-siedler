@@ -15,13 +15,13 @@ export function openWizard({ preset, page = false } = {}) {
   S.page = page;
   if (!root) build();
   if (preset && CALC[preset] && !S.items.has(preset)) S.items.set(preset, newItem(preset));
-  root.classList.add('open'); document.body.style.overflow = 'hidden';
+  root.classList.add('open'); document.documentElement.style.overflow = 'hidden';
   go(S.step); refresh();
   $('video', root)?.play().catch(() => {});
 }
 function close() {
   if (S.page) { location.href = '/'; return; }
-  root.classList.remove('open'); document.body.style.overflow = '';
+  root.classList.remove('open'); document.documentElement.style.overflow = '';
   $('video', root)?.pause();
 }
 
@@ -39,9 +39,10 @@ function build() {
     <div class="wiz-body">
       <aside class="wiz-side">
         <div class="wiz-3d"><canvas></canvas><div class="wiz-hint">${icon('sparkle', 16)} <span>Das Haus reagiert auf Ihre Auswahl</span></div></div>
-        <div class="wiz-price">
+        <div class="wiz-price empty">
           <div class="vat"><button class="on" data-v="0">netto</button><button data-v="1">brutto</button></div>
           <small>monatlich ca.</small>
+          <span class="wiz-empty-p">Wählen Sie Leistungen – der Preis erscheint sofort.</span>
           <b class="wiz-mon">0 €</b>
           <div class="wiz-sub"><span>einmalig</span><em class="wiz-one">–</em></div>
           <div class="wiz-bar"><i></i></div>
@@ -169,6 +170,7 @@ function price() {
     el.textContent = to.max || from.max ? `${eur(from.min + (to.min - from.min) * e)} – ${eur(from.max + (to.max - from.max) * e)}` : '0 €';
     if (p < 1 && last === to) requestAnimationFrame(step);
   })(t0);
+  $('.wiz-price', root).classList.toggle('empty', !S.items.size);
   $('.wiz-one', root).textContent = once.max ? span(once) : '–';
   $('.wiz-bar i', root).style.width = `${Math.min(100, (rec.max / 2500) * 100)}%`;
   if (S.step === 3) renderResult();

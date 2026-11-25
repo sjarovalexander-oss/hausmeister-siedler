@@ -118,7 +118,8 @@ export function house3d(canvas, { mouse = true } = {}) {
   const ring = new THREE.Mesh(new THREE.TorusGeometry(4.9, 0.025, 8, 120), new THREE.MeshBasicMaterial({ color: BLUE, transparent: true, opacity: 0.5 }));
   ring.rotation.x = Math.PI / 2; ring.position.y = 0.1; world.add(ring);
 
-  const resize = () => { const { clientWidth: w, clientHeight: h } = canvas; if (!w || !h) return; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); };
+  const resize = () => { const { clientWidth: w, clientHeight: h } = canvas; if (!w || !h) return; renderer.setSize(w, h, false); cam.aspect = w / h;
+    const d = cam.aspect < 1.15 ? 1.18 / Math.max(cam.aspect, 0.6) : 1.02; cam.position.set(7.5 * d, 6 * d, 9.5 * d); cam.lookAt(0, 1.1, 0); cam.updateProjectionMatrix(); };
   new ResizeObserver(resize).observe(canvas); resize();
 
   let mx = 0, my = 0, tx = 0, ty = 0;
@@ -166,7 +167,7 @@ export function house3d(canvas, { mouse = true } = {}) {
     kp.needsUpdate = true;
     sparkle.material.size = 0.1 + Math.sin(t * 6) * 0.03;
     confetti.forEach((p) => { const d = p.userData; d.a += 0.012 * d.s; d.y -= 0.006 * d.s; if (d.y < 0.2) d.y = 5;
-      p.position.set(Math.cos(d.a) * d.r, d.y, Math.sin(d.a) * d.r); p.rotation.x += 0.02; p.rotation.y += 0.03; p.visible = C.snow < 0.5; });
+      p.position.set(Math.cos(d.a) * d.r, d.y, Math.sin(d.a) * d.r); p.rotation.x += 0.02; p.rotation.y += 0.03; p.visible = C.snow < 0.5 && on.size < 1; });
     ring.scale.setScalar(1 + Math.sin(t * 1.5) * 0.015);
     renderer.render(scene, cam);
   })();

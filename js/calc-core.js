@@ -2,9 +2,9 @@
 import { PRICES as P } from './config.js';
 
 export const OBJECTS = [
-  { id: 'efh', label: 'Einfamilienhaus', ic: 'building', we: 1, etagen: 2, th: 1, suggest: ['gruen', 'winter', 'muelltonnen'] },
+  { id: 'efh', label: 'Einfamilienhaus', ic: 'home', we: 1, etagen: 2, th: 1, suggest: ['gruen', 'winter', 'muelltonnen'] },
   { id: 'mfh', label: 'Mehrfamilienhaus', ic: 'building', we: 8, etagen: 3, th: 1, suggest: ['hausmeister', 'treppenhaus', 'winter'] },
-  { id: 'weg', label: 'Wohnanlage / WEG', ic: 'building', we: 24, etagen: 4, th: 2, suggest: ['hausmeister', 'treppenhaus', 'gruen', 'winter'] },
+  { id: 'weg', label: 'Wohnanlage / WEG', ic: 'city', we: 24, etagen: 4, th: 2, suggest: ['hausmeister', 'treppenhaus', 'gruen', 'winter'] },
   { id: 'gew', label: 'Gewerbe & Büro', ic: 'desk', we: 0, etagen: 2, th: 1, suggest: ['buero', 'glas', 'winter'] },
 ];
 
