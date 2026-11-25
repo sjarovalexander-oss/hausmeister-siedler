@@ -68,3 +68,6 @@
 .ct-tile em{position:absolute;top:24px;right:24px;font-style:normal;font-weight:900;font-size:1.2rem}
 @media (max-width:1000px){.home-teaser{grid-template-columns:1fr}.ct-tiles{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.ct-tiles{grid-template-columns:1fr}}
+
+/* Kontaktseite: startet direkt mit dem Video-Modul */
+.vsec-page{margin:0;border-radius:0;min-height:100vh;padding:130px 0 90px}
