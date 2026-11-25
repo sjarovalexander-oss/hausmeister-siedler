@@ -1,4 +1,4 @@
-import { SITE, SERVICES, CATS } from './config.js';
+import { SITE, SERVICES, FEATURED, serviceUrl } from './config.js';
 import { icon } from './icons.js';
 import { $, $$, chrome, reveal, fileDrop, submitForm, modal } from './shared.js';
 import { initI18n, t } from './i18n.js';
@@ -22,32 +22,22 @@ $$('section video').forEach((v) => {
 const mq = SERVICES.map((s) => `<span>${s.title}</span>`).join('');
 $('#mq').innerHTML = mq + mq;
 
-// Leistungen + Filter
+// Leistungen: 6 auf der Startseite, alle auf /leistungen
 const grid = $('#svc');
-grid.innerHTML = SERVICES.map((s, i) => `
-  <article class="svc reveal" data-cat="${s.cat}" data-id="${s.id}" tabindex="0">
+const feat = FEATURED.map((id) => SERVICES.find((s) => s.id === id));
+grid.innerHTML = feat.map((s, i) => `
+  <a class="svc reveal" href="${serviceUrl(s)}" style="text-decoration:none">
     <span class="num">${String(i + 1).padStart(2, '0')}</span>
     <div class="ic">${icon(s.icon, 28)}</div>
     <h3>${s.title}</h3><p>${s.short}</p>
     <span class="more">Details ${icon('arrow', 16)}</span>
-  </article>`).join('');
-$('#filters').innerHTML = `<button class="on" data-c="all">Alle</button>` + Object.entries(CATS).map(([k, v]) => `<button data-c="${k}">${v}</button>`).join('');
-$$('#filters button').forEach((b) => (b.onclick = () => {
-  $$('#filters button').forEach((x) => x.classList.toggle('on', x === b));
-  $$('.svc').forEach((c) => c.classList.toggle('hide', b.dataset.c !== 'all' && c.dataset.cat !== b.dataset.c));
-}));
-const openSvc = (id) => {
-  const s = SERVICES.find((x) => x.id === id);
-  const { el: m } = modal(`<div class="ic">${icon(s.icon, 32)}</div><span class="eyebrow">${CATS[s.cat]}</span><h2 style="font-size:2rem">${s.title}</h2>
-    <p class="lead" style="margin-top:12px">${s.short}</p>
-    <ul>${s.points.map((p) => `<li>${icon('check', 20)}${p}</li>`).join('')}</ul>
-    <div class="btns"><a class="btn btn-primary" href="#" data-pre="${s.id}">${icon('calc', 18)} Kosten berechnen</a><a class="btn btn-ghost" href="#kontakt" onclick="document.querySelector('.modal-x').click()">Anfragen</a></div>`);
-  $('[data-pre]', m).onclick = (e) => { e.preventDefault(); $('.modal-x', m).click(); import('./wizard.js').then((w) => w.openWizard({ preset: id })); };
-};
+  </a>`).join('') + `
+  <a class="svc svc-all reveal" href="/leistungen">
+    <div class="ic">${icon('plus', 28)}</div>
+    <div><h3>+ ${SERVICES.length - feat.length} weitere Leistungen</h3><p>Fassade, Tiefgarage, Büro, Entrümpelung, Gravur, Reparaturen und mehr.</p></div>
+    <span class="more">Alle Leistungen ansehen ${icon('arrow', 16)}</span>
+  </a>`;
 $$('.svc').forEach((c) => {
-  c.onclick = () => openSvc(c.dataset.id);
-  c.onkeydown = (e) => e.key === 'Enter' && openSvc(c.dataset.id);
-  // 3D-Tilt
   c.onpointermove = (e) => {
     const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
     c.style.transform = `perspective(700px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-6px)`;

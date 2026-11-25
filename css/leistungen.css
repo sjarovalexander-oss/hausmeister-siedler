@@ -1,0 +1,57 @@
+.l-hero{position:relative;color:#fff;padding:170px 0 90px;background:#0B0F14 var(--img) center/cover;overflow:hidden}
+.l-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,14,24,.88),rgba(6,14,24,.45) 70%,rgba(6,14,24,.25)),linear-gradient(0deg,rgba(6,14,24,.6),transparent 50%)}
+.l-hero .wrap{position:relative}
+.l-hero-d{min-height:78vh;display:flex;align-items:flex-end}
+.l-hero .eyebrow{color:#7FC7FA}.l-hero .eyebrow::before{background:#7FC7FA}
+.l-hero h1{max-width:900px}
+.l-hero .lead{color:#E3EBF2;margin:20px 0 30px}
+.l-hero .btn-ghost{color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.8)}
+.l-hero .btn-ghost:hover{background:#fff;color:var(--ink)}
+.crumbs{display:flex;gap:8px;flex-wrap:wrap;font:700 .85rem var(--f-h);margin-bottom:26px;color:#B9C8D6}
+.crumbs a{text-decoration:none}.crumbs a:hover{color:#fff}.crumbs b{color:#fff}
+.l-list{padding-top:50px}
+.l-list .filters{margin-bottom:30px}
+.l-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.l-card{background:#fff;border-radius:26px;overflow:hidden;text-decoration:none;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.l-card[hidden]{display:none}
+.l-card:hover{transform:translateY(-6px);box-shadow:var(--sh)}
+.l-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:#dfe7ee}
+.l-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.l-card:hover .l-img img{transform:scale(1.07)}
+.l-ic{position:absolute;left:16px;bottom:16px;width:46px;height:46px;border-radius:14px;background:#fff;color:var(--blue);display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.l-txt{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.l-txt small{font:800 .72rem var(--f-h);letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.l-txt h3{font-size:1.25rem;margin:6px 0 8px}
+.l-txt p{color:var(--muted);font-size:.95rem;flex:1}
+.l-foot{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:14px;border-top:1px dashed var(--line)}
+.l-price{font:800 .85rem var(--f-h);color:var(--ink)}
+.l-more{display:flex;gap:6px;align-items:center;font:800 .85rem var(--f-h);color:var(--blue)}
+.l-cols{display:grid;grid-template-columns:1fr 360px;gap:50px;align-items:start}
+.l-long{font-size:1.15rem;line-height:1.75;color:#2a333d;margin:18px 0 10px}
+.l-h3{font-size:1.25rem;margin:40px 0 16px}
+.l-points{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.l-points li{display:flex;gap:12px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 18px;font-weight:600}
+.l-points svg{color:var(--blue);flex:none}
+.l-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.l-steps div{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px}
+.l-steps b{font:900 2.2rem var(--f-h);color:var(--blue-l);-webkit-text-stroke:1.2px var(--blue)}
+.l-steps h4{margin:6px 0}
+.l-steps p{color:var(--muted);font-size:.92rem}
+.l-side{position:sticky;top:100px;display:grid;gap:16px}
+.l-box{background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px}
+.l-box small{font:800 .72rem var(--f-h);letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.l-box>b{display:block;font:900 1.6rem var(--f-h);margin:6px 0 10px}
+.l-box p{color:var(--muted);font-size:.88rem;margin-bottom:18px}
+.l-box .btn{width:100%;justify-content:center}
+.l-box.dark{background:var(--ink);color:#fff;border:0}
+.l-box.dark h4{margin-bottom:10px}
+.l-box.dark a{display:flex;gap:12px;align-items:center;padding:12px 0;border-top:1px solid rgba(255,255,255,.1);text-decoration:none;font-weight:600}
+.l-box.dark svg{color:var(--blue)}
+.l-rel{background:#fff}
+/* Startseite: Karte „Alle Leistungen“ */
+.svc-all{display:flex;flex-direction:column;justify-content:space-between;background:var(--blue)!important;color:#fff;text-decoration:none;border:0!important}
+.svc-all h3{font-size:1.6rem;color:#fff}
+.svc-all p{color:#DDEFFC!important}
+.svc-all .ic{background:rgba(255,255,255,.2)!important;color:#fff!important}
+.svc-all .more{color:#fff!important}
+@media (max-width:1000px){.l-cols{grid-template-columns:1fr}.l-side{position:static}.l-points,.l-steps{grid-template-columns:1fr}}

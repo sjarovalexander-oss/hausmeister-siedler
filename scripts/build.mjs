@@ -2,9 +2,22 @@
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
 
 const OUT = 'dist';
-const COPY = ['index.html', 'kostenrechner.html', 'impressum.html', 'datenschutz.html', 'css', 'js', 'assets'];
+const COPY = ['index.html', 'leistungen.html', 'kostenrechner.html', 'impressum.html', 'datenschutz.html', 'css', 'js', 'assets'];
 fs.rmSync(OUT, { recursive: true, force: true });
 for (const f of COPY) fs.cpSync(f, path.join(OUT, f), { recursive: true });
+
+// Unterseiten je Leistung: /leistungen/<kürzel>
+const { SERVICES, slug } = await import('../js/config.js');
+const tpl = fs.readFileSync('leistung.html', 'utf8');
+fs.mkdirSync(path.join(OUT, 'leistungen'), { recursive: true });
+const esc = (x) => x.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+for (const s of SERVICES) {
+  const html = tpl.replace('<title>Leistung · Hausmeisterservice Siedler GmbH</title>', `<title>${esc(s.title)} · Hausmeisterservice Siedler GmbH</title>`)
+    .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(s.short + ' ' + s.long.split('. ')[0] + '.')}">`)
+    .replace('data-id=""', `data-id="${s.id}"`);
+  fs.writeFileSync(path.join(OUT, 'leistungen', `${slug(s)}.html`), html);
+}
+console.log('✓', SERVICES.length, 'Leistungsseiten');
 
 const media = JSON.parse(fs.readFileSync('media.json', 'utf8'));
 const dir = path.join(OUT, 'assets/media'); fs.mkdirSync(dir, { recursive: true });
